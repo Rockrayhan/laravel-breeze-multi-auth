@@ -64,7 +64,7 @@
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" action="{{route('admin.login')}}" method="POST">
+                  <form class="row g-3 needs-validation" action="{{route('editor.login')}}" method="POST">
                     @csrf
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Email</label>

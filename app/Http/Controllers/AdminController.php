@@ -26,4 +26,17 @@ class AdminController extends Controller
     public function dashboard(){
         return view('admin.dashboard');
     }
+
+    public function destroy (Request $request)
+    {
+        
+        Auth::guard('admin')->logout();
+        
+
+        // $request->session()->invalidate();
+
+        // $request->session()->regenerateToken();
+
+        return redirect('admin/login');
+    }
 }
