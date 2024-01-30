@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EditorController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,14 @@ Route::prefix('admin')->group(function(){
     Route::get('login',[AdminController::class, 'index'])->name('admin_login_form');
     Route::post('login/owner',[AdminController::class, 'login'])->name('admin.login');
     Route::get('dashboard',[AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('admin');
+
+
+});
+Route::prefix('editor')->group(function(){
+
+    Route::get('login',[EditorController::class, 'index'])->name('editor_login_form');
+    Route::post('editor/owner',[EditorController::class, 'login'])->name('editor.login');
+    Route::get('dashboard',[EditorController::class, 'dashboard'])->name('editor.dashboard')->middleware('editor');
 
 
 });

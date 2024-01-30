@@ -45,6 +45,11 @@ return [
             'driver' => 'session',
             'provider' => 'admins', //db name
         ],
+        // for admin editor
+        'editor' => [
+            'driver' => 'session',
+            'provider' => 'editors', //db name
+        ],
     ],
 
     /*
@@ -72,6 +77,10 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
+        ],
+        'editors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Editor::class,
         ],
 
         // 'users' => [
@@ -107,6 +116,12 @@ return [
             'throttle' => 60,
         ],
         'admins' => [
+            'provider' => 'users',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'editors' => [
             'provider' => 'users',
             'table' => 'password_reset_tokens',
             'expire' => 60,
